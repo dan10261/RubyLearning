@@ -8,7 +8,7 @@ until !isLoop
   first_num = gets.chomp
   puts "Please enter the second number: "
   second_num = gets.chomp
-  puts "Please select the method (1 -- addition,2 -- subtraction ,3-- division, 4--mode , 5-- multiple): "
+  puts "Please select the method (1 --- addition,2 -- subtraction ,3-- division, 4--mode , 5-- multiple): "
   method_ind = gets.chomp
   
   if method_ind == "1"
