@@ -1,6 +1,28 @@
-require "./RubyScripts/CalculatorMethods"
+require "./RubyScripts/calculator_service"
+require "./RubyScripts/hash_service"
 
-include CalculatorMethods
+## Module
+include HashService
+
+my_profile = {'name'=>'RubyTest','favorite'=>'purple','education'=>'master degree'}
+my_num_copy = {:a=>1,:b=>2,:c=>'ruby',:d=>'red'}
+puts
+print_my_hash(my_profile,my_num_copy)
+loop_profile_select(my_profile)
+puts
+loop_profile_each(my_profile)
+puts
+modify_my_profile(my_profile)
+puts
+modify_my_num_copy(my_num_copy)
+
+## Break Like
+puts
+25.times{print '#'}
+puts
+
+## Module
+include CalculatorService
 
 isLoop = true
 until !isLoop
@@ -10,7 +32,7 @@ until !isLoop
   second_num = gets.chomp
   puts "Please select the method (1 --- addition,2 -- subtraction ,3-- division, 4--mode , 5-- multiple): "
   method_ind = gets.chomp
-  
+
   if method_ind == "1"
     puts "The addition of the two numbers is: #{add(first_num.to_i,second_num.to_i)}"
   elsif method_ind =="2"
@@ -47,27 +69,26 @@ print a.each{|i| i}
 puts
 
 a.select {
-  |element| 
+  |element|
   if element.odd?
     print "#{element}, "
   end
 }
 puts
-  
-  
+
 a.each{
   |element|
-  if element == 20 
+  if element == 20
     print element
   end
 }
 puts
 
 a.each do |element|
-    if element==10
-      print element
-    end
+  if element==10
+    print element
   end
+end
 #p "Hello World"
 ###This is the port to for this HelloRuby project
 #print "\nPlease start from here.\n"
@@ -105,7 +126,7 @@ a.each do |element|
 #myArray = []
 #myArray[0]=1
 #myArray[1]=2
-#myArray[2]=3 
+#myArray[2]=3
 #p myArray
 #
 #strArray = ['hello', 'world','array']
@@ -117,30 +138,29 @@ a.each do |element|
 #}
 #puts myHash
 #puts myHash["key1"]
-#  
+#
 #myHash = Hash.new()
 #myHash["key3"] = "value3"
 #puts myHash
 #puts myHash["key3"]
-  
+
 #def enter_your_name
 #  print "What is your first name:"
 # first_name = gets.chomp
 # puts "What is your last name: "
 # last_name = gets.chomp()
-# puts "Welcome to Ruby: #{first_name} #{last_name}" 
+# puts "Welcome to Ruby: #{first_name} #{last_name}"
 #end
 
 #def print_rand_num
-#  puts rand(100) 
+#  puts rand(100)
 #end
 #
 #puts "5"*2
 #25.times{print "-"}
-#puts 
+#puts
 
 #call methods
 #print_rand_num
 #enter_your_name
 
-  
