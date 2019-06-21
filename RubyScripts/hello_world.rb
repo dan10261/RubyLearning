@@ -1,5 +1,68 @@
 require "./RubyScripts/calculator_service"
 require "./RubyScripts/hash_service"
+require "./RubyScripts/user_service"
+require "./RubyScripts/area_service"
+
+#Module
+include Area_service
+areas= get_area_book
+puts "This is the list of cities available: "
+print get_city(areas)
+puts
+puts "Please enter the city you want to look up: "
+city = gets.chomp.downcase
+print get_area_code(areas,city.to_s)
+
+
+# Break Like
+puts
+25.times{print '#'}
+puts
+
+# exit 
+exit
+
+
+#Module
+include User_service
+array_users = get_users
+attempts = 4
+while (attempts)
+  print "User Name: "
+  username = gets.chomp
+  print "Password: "
+  password = gets.chomp
+  authenticatedUser = auth_user(username, password, array_users)
+  puts authenticatedUser
+  puts authenticatedUser.class
+  if  authenticatedUser.class == Hash
+    puts "you are successfully login."
+    break
+  end
+  
+  attempts -=1
+  
+  if attempts ==0
+    puts "you have reached the maximum attempts."
+    break
+  end
+  
+  puts "Press n to quit"
+  quit = gets.chomp.downcase
+  
+  if quit == 'n'
+    break 
+  end
+
+end
+
+
+# Break Like 
+puts
+25.times{print '#'}
+puts
+# exit 
+exit
 
 ## Module
 include HashService
@@ -20,6 +83,8 @@ modify_my_num_copy(my_num_copy)
 puts
 25.times{print '#'}
 puts
+# exit 
+exit
 
 ## Module
 include CalculatorService
