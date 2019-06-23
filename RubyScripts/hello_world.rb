@@ -2,6 +2,27 @@ require "./RubyScripts/calculator_service"
 require "./RubyScripts/hash_service"
 require "./RubyScripts/user_service"
 require "./RubyScripts/area_service"
+require "./model/Student.rb"
+
+
+#class
+baobao = Student.new('baobao','ying','baozi','baozi@gmail.com','password')
+puts baobao
+
+
+loop do 
+  puts 'Print me..(exit: y/n)'
+  command = gets.chomp
+  break if command.downcase == 'n'
+end
+  
+# Break Like
+puts
+25.times{print '#'}
+puts
+
+# exit 
+exit
 
 #Module
 include Area_service
@@ -9,9 +30,14 @@ areas= get_area_book
 puts "This is the list of cities available: "
 print get_city(areas)
 puts
-puts "Please enter the city you want to look up: "
+puts "Please enter the city to look up area codes: "
 city = gets.chomp.downcase
-print get_area_code(areas,city.to_s)
+if areas.include?(city)
+  print get_area_code(areas,city.to_s)
+else
+  puts "you entered the wrong city."
+end
+
 
 
 # Break Like
